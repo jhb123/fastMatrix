@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-
 template<class T>
 std::vector < std::vector<T> > matrix_multiply(
 	std::vector < std::vector<T> > A, std::vector < std::vector<T> > B) {
@@ -23,8 +22,6 @@ std::vector < std::vector<T> > matrix_multiply(
 		};
 		++m2;
 	}
-	std::cout << "Matrix 1: " << n1 << " columns by " << m1 << " rows." << std::endl;
-	std::cout << "Matrix 2: " << n2 << " columns by " << m2 << " rows." << std::endl;
 
 	//check that the matricies are the right shape to be multiplied together
 	if (n1 != m2) {
@@ -35,8 +32,6 @@ std::vector < std::vector<T> > matrix_multiply(
 	// matricies. A[m][n] have is an m*n matrix n columns and m rows,
 	// so result's shape is m1*n2
 	std::vector < std::vector<T> > result(m1 , std::vector<T> (n2) );
-	std::cout << "result size [m by n]: " << result.size() << " by "
-		<< result[0].size() << std::endl;
 	for (int i = 0; i < m1; ++i) {
 		for (int j = 0; j < n2; ++j) {
 			for (int k = 0; k < n1; ++k) {
@@ -57,7 +52,7 @@ void print_matrix(T M) {
 		}
 		std::cout<<std::endl;
 	}
-
+	std::cout << std::endl;
 }
 
 
@@ -75,6 +70,8 @@ int main() {
 		{7,8,9},
 	};
 	std::vector< std::vector<int> > C;
+
+
 	try {
 	C = matrix_multiply(A, B);
 	}
