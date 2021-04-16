@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _MATRIX
+#define _MATRIX
+
 class matrix
 {
 	public:
@@ -7,3 +9,4 @@ class matrix
 
 };
 
+#endif
