@@ -1,7 +1,9 @@
 #include <iostream>
+#include "matrix.h"
 
 int main() {
-	std::cout << "Hello, World!";
-	std::cout<< "\n a new line " << std::endl;
+	matrix M;
+	std::cout << "Hello, World!\n";
+	std::cout<< M.get_i() << std::endl;
 	return 0;
 }
