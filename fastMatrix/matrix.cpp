@@ -1,5 +1,19 @@
-#include "matrix.h"
+template<class T>
+class matrix {
+public:
+	matrix(T);
+	T var;
+	T get_var();
+};
 
-int matrix::get_i() {
-	return i;
+template<class T>
+matrix<T>::matrix(T UserVar) {
+	this->var = UserVar;
 }
+
+template<class T>
+T matrix<T>::get_var() {
+
+	return this->var;
+}
+

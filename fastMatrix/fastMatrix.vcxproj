@@ -22,9 +22,6 @@
     <ClCompile Include="fastMatrix.cpp" />
     <ClCompile Include="matrix.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="matrix.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

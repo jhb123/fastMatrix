@@ -1,9 +1,13 @@
 #include <iostream>
-#include "matrix.h"
+#include "matrix.cpp"
 
 int main() {
-	matrix M;
+	int foo = 15;
+	float bar = 1.5;
+	matrix<int> M(foo);
+	matrix<float> N(bar);
 	std::cout << "Hello, World!\n";
-	std::cout<< M.get_i() << std::endl;
+	std::cout<< M.var << std::endl;
+	std::cout << N.var << std::endl;
 	return 0;
 }
