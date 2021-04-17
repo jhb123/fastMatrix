@@ -1,5 +1,55 @@
 #include <iostream>
 #include <vector>
+#include "matrix.h"
+
+template<class T>
+std::vector < std::vector<T> > matrix_multiply(
+	std::vector < std::vector<T> > A, std::vector < std::vector<T> > B);
+
+template<class T>
+void print_matrix(T M);
+
+int main() {
+
+	// matricies. A[m][n] have is an m*n matrix n columns and m rows;
+
+	std::vector< std::vector<int> > A {
+		{1,2},
+		{3,4},
+	};
+	
+	std::vector< std::vector<int> > B{
+		{5,6,7},
+		{7,8,9},
+	};
+	std::vector< std::vector<int> > C;
+
+
+	try {
+	C = matrix_multiply(A, B);
+	}
+	catch(std::invalid_argument& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+	print_matrix(A);
+	print_matrix(B);
+	print_matrix(C);
+
+	matrix M(A);
+	M.print_matrix();
+	//std::cout <<  << std::endl;
+
+
+	return 0;
+}
+
+
+
+
+
+
 
 template<class T>
 std::vector < std::vector<T> > matrix_multiply(
@@ -31,7 +81,7 @@ std::vector < std::vector<T> > matrix_multiply(
 	//create a vector of the right size
 	// matricies. A[m][n] have is an m*n matrix n columns and m rows,
 	// so result's shape is m1*n2
-	std::vector < std::vector<T> > result(m1 , std::vector<T> (n2) );
+	std::vector < std::vector<T> > result(m1, std::vector<T>(n2));
 	for (int i = 0; i < m1; ++i) {
 		for (int j = 0; j < n2; ++j) {
 			for (int k = 0; k < n1; ++k) {
@@ -50,38 +100,7 @@ void print_matrix(T M) {
 		for (int j = 0; j < m1; ++j) {
 			std::cout << M[i][j] << " ";
 		}
-		std::cout<<std::endl;
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-}
-
-
-int main() {
-
-	// matricies. A[m][n] have is an m*n matrix n columns and m rows;
-
-	std::vector< std::vector<int> > A {
-		{1,2},
-		{3,4},
-	};
-	
-	std::vector< std::vector<int> > B{
-		{5,6,7},
-		{7,8,9},
-	};
-	std::vector< std::vector<int> > C;
-
-
-	try {
-	C = matrix_multiply(A, B);
-	}
-	catch(std::invalid_argument& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return -1;
-	}
-	print_matrix(A);
-	print_matrix(B);
-	print_matrix(C);
-	return 0;
 }

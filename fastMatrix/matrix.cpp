@@ -1,19 +1,27 @@
-template<class T>
-class matrix {
-public:
-	matrix(T);
-	T var;
-	T get_var();
-};
+#include "matrix.h"
+#include <iostream>
+#include <stdexcept>
 
-template<class T>
-matrix<T>::matrix(T UserVar) {
-	this->var = UserVar;
+matrix::matrix(std::vector < std::vector<int> > mat) {
+	this->mat = mat;
+	this->cols = mat[0].size();
+	
+	for (auto iter = mat.begin(); iter != mat.end(); ++iter) {
+		
+		if (iter->size() != cols) {
+			throw std::invalid_argument("Not a square matrix");
+		};
+		this->rows++;
+	}
+
 }
 
-template<class T>
-T matrix<T>::get_var() {
-
-	return this->var;
+void matrix::print_matrix() {
+	for (int i = 0; i < rows; ++i) {
+		for (int j = 0; j < cols; ++j) {
+			std::cout << mat[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
 }
-

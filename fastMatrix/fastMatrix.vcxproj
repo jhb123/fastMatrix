@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fastMatrix.cpp" />
+    <ClCompile Include="matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="matrix.h" />
