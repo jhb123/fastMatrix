@@ -20,7 +20,7 @@ int main() {
 	
 	std::vector< std::vector<int> > B{
 		{5,6,7},
-		{7,8,9},
+		{10,8,9},
 	};
 	std::vector< std::vector<int> > C;
 
@@ -33,14 +33,18 @@ int main() {
 		std::cerr << e.what() << std::endl;
 		return -1;
 	}
-	print_matrix(A);
-	print_matrix(B);
-	print_matrix(C);
+	//print_matrix(A);
+	//print_matrix(B);
+	//print_matrix(C);
 
 	matrix M(A);
+	matrix N(B);
 	M.print_matrix();
-	//std::cout <<  << std::endl;
-
+	N.print_matrix();
+	matrix foo = M*N;
+	foo.print_matrix();
+	//M.print_row(1);
+	//M.print_col(1);
 
 	return 0;
 }
