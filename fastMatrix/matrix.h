@@ -6,6 +6,7 @@ class matrix{
 		//matricies. A[m][n] have is an m*n matrix n columns and m rows;
 		matrix(std::vector < std::vector<int> >);
 		matrix(int,int);
+		matrix();
 
 		//data strucutre and shape variables
 		int rows = 0, cols,numElem;
@@ -25,3 +26,5 @@ class matrix{
 int dot(std::vector<int>, std::vector<int>);
 
 matrix operator* (matrix, matrix);
+
+bool operator == (matrix, matrix);

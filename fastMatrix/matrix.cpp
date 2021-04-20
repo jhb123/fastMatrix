@@ -26,9 +26,15 @@ matrix::matrix(int rows, int cols) {
 	this->rows = rows;
 	this->cols = cols;
 	this->numElem = rows * cols;
-	this->mat.resize(numElem); 
+	this->mat.resize(this->numElem);
 }
 
+matrix::matrix() {
+	this->rows = 0;
+	this->cols = 0;
+	this->numElem = 0;
+	this->mat.resize(this->numElem);
+}
 
 std::vector<int> matrix::get_row(int row_num) {
 	std::vector<int> result(this->cols);
@@ -89,4 +95,9 @@ matrix operator* (matrix A, matrix B) {
 		}
 	}
 	return C;
+}
+
+
+bool operator == (matrix A, matrix B) {
+	return A.mat == B.mat;
 }
