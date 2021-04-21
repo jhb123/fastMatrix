@@ -19,11 +19,11 @@ int main() {
 
 	std::vector< std::vector<int> > C;
 
-	matrix M(A);
-	matrix N(B);
+	matrix<int> M(A);
+	matrix<int> N(B);
 	M.print_matrix();
 	N.print_matrix();
-	matrix foo = M * N;
+	matrix<int> foo = M * N;
 	foo.print_matrix();
 	//M.print_row(1);
 	//M.print_col(1);

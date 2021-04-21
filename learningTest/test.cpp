@@ -21,9 +21,9 @@ namespace {
 					{10,8,9},
 				};
 
-				matrix A(matAdata);
-				matrix B(matBdata);
-				matrix C(matCdata);
+				matrix<int> A(matAdata);
+				matrix<int> B(matBdata);
+				matrix<int> C(matCdata);
 
 				EXPECT_EQ(A, A);
 				EXPECT_EQ(A, B);

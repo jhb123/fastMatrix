@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
+/*
 matrix::matrix(std::vector < std::vector<int> > mat) {
 	this->cols = mat[0].size();
 	
@@ -101,3 +102,4 @@ matrix operator* (matrix A, matrix B) {
 bool operator == (matrix A, matrix B) {
 	return A.mat == B.mat;
 }
+*/
