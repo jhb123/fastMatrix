@@ -12,7 +12,7 @@ class matrix{
 		matrix();
 
 		//data strucutre and shape variables
-		int rows = 0, cols,numElem;
+		unsigned int rows = 0, cols,numElem;
 		std::vector <T> mat;
 
 		//helper functions
@@ -49,8 +49,8 @@ matrix<T>::matrix(std::vector < std::vector<T> > mat) {
 	this->numElem = this->cols * this->rows;
 	this->mat.resize(numElem);
 
-	for (int i = 0; i < this->rows; ++i) {
-		for (int j = 0; j < this->cols; ++j) {
+	for (unsigned int i = 0; i < this->rows; ++i) {
+		for (unsigned int j = 0; j < this->cols; ++j) {
 			this->mat[this->cols * i + j] = mat[i][j];
 		}
 	}
@@ -75,7 +75,7 @@ matrix<T>::matrix() {
 template<class T>
 std::vector<T> matrix<T>::get_row(int row_num) {
 	std::vector<int> result(this->cols);
-	for (int i = 0; i < this->cols; ++i) {
+	for (unsigned int i = 0; i < this->cols; ++i) {
 		result[i] = this->mat[row_num * this->cols + i];
 	}
 	return result;
@@ -84,7 +84,7 @@ std::vector<T> matrix<T>::get_row(int row_num) {
 template<class T>
 std::vector<T> matrix<T>::get_col(int col_num) {
 	std::vector<int> result(this->rows);
-	for (int i = 0; i < this->rows; ++i) {
+	for (unsigned int i = 0; i < this->rows; ++i) {
 		result[i] = this->mat[i * this->cols + col_num];
 	}
 	return result;
@@ -92,7 +92,7 @@ std::vector<T> matrix<T>::get_col(int col_num) {
 
 template<class T>
 void matrix<T>::print_row(int row_num) {
-	for (int i = row_num * this->cols; i < (row_num + 1) * this->cols; ++i) {
+	for (unsigned int i = row_num * this->cols; i < (row_num + 1) * this->cols; ++i) {
 		std::cout << this->mat[i] << ' ';
 	}
 	std::cout << std::endl;
@@ -100,7 +100,7 @@ void matrix<T>::print_row(int row_num) {
 
 template<class T>
 void matrix<T>::print_col(int col_num) {
-	for (int i = 0; i < this->rows; ++i) {
+	for (unsigned int i = 0; i < this->rows; ++i) {
 		std::cout << this->mat[col_num + i * this->rows] << ' ';
 	}
 	std::cout << std::endl;
@@ -108,8 +108,8 @@ void matrix<T>::print_col(int col_num) {
 
 template<class T>
 void matrix<T>::print_matrix() {
-	for (int i = 0; i < this->rows; ++i) {
-		for (int j = 0; j < this->cols; ++j) {
+	for (unsigned int i = 0; i < this->rows; ++i) {
+		for (unsigned int j = 0; j < this->cols; ++j) {
 			std::cout << mat[this->cols * i + j] << ' ';
 		}
 		std::cout << '\n';
@@ -120,18 +120,18 @@ void matrix<T>::print_matrix() {
 template<class T>
 int dot(std::vector<T> row, std::vector<T> col) {
 	int result = 0;
-	for (int i = 0; i < row.size(); ++i) {
+	for (unsigned int i = 0; i < row.size(); ++i) {
 		result += row[i] * col[i];
 	}
 	return result;
 }
 template<class T>
 matrix<T> operator* (matrix<T> A, matrix<T> B) {
-	int rows = A.rows;
-	int cols = B.cols;
+	unsigned int rows = A.rows;
+	unsigned int cols = B.cols;
 	matrix<T> C = matrix<T>(rows, cols);
-	for (int i = 0; i < rows; ++i) {
-		for (int j = 0; j < cols; j++) {
+	for (unsigned int i = 0; i < rows; ++i) {
+		for (unsigned int j = 0; j < cols; j++) {
 			C.mat[cols * i + j] = dot(A.get_row(i), B.get_col(j));
 		}
 	}
