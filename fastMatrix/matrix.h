@@ -2,6 +2,9 @@
 #include <vector>
 #include <iostream>
 #include <stdexcept>
+#include <stdlib.h>     /*rand */
+#include <algorithm>
+
 
 template<class T>
 class matrix{
@@ -18,6 +21,7 @@ class matrix{
 		//helper functions
 		std::vector<T> get_row(int);
 		std::vector<T> get_col(int);
+		void fill_rand(int,int);
 
 		//print functions
 		void print_matrix();
@@ -35,6 +39,8 @@ matrix<T> operator* (matrix<T>, matrix<T>);
 template<class T>
 bool operator == (matrix<T>, matrix<T>);
 
+
+////////////////////////// Constructors //////////////////////////
 template<class T>
 matrix<T>::matrix(std::vector < std::vector<T> > mat) {
 	this->cols = mat[0].size();
@@ -72,6 +78,7 @@ matrix<T>::matrix() {
 	this->mat.resize(this->numElem);
 }
 
+////////////////////////// Helper fuctions //////////////////////////
 template<class T>
 std::vector<T> matrix<T>::get_row(int row_num) {
 	std::vector<int> result(this->cols);
@@ -90,6 +97,13 @@ std::vector<T> matrix<T>::get_col(int col_num) {
 	return result;
 }
 
+template<class T>
+void matrix<T>::fill_rand(int min, int max) {
+	std::generate(this->mat.begin(), this->mat.end(),
+		[&]() -> T {return rand() % max+min; });
+}
+
+////////////////////////// print functions //////////////////////////
 template<class T>
 void matrix<T>::print_row(int row_num) {
 	for (unsigned int i = row_num * this->cols; i < (row_num + 1) * this->cols; ++i) {
