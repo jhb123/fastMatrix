@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="matrix.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="matrix.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

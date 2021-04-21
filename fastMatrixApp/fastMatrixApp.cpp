@@ -25,11 +25,6 @@ int main() {
 	N.print_matrix();
 	matrix<int> foo = M * N;
 	foo.print_matrix();
-	//M.print_row(1);
-	//M.print_col(1);
 
-	std::cout << (M == N) << std::endl;
-	std::cout << (M == M) << std::endl;
-	std::cout << "Hello, World!" << std::endl;
 	return 0;
 }
